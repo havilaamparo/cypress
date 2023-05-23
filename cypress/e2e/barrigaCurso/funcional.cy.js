@@ -18,12 +18,20 @@ describe('Testes funcionais do barriga react', () => {
         cy.get('.toast-success').should('to.have', 'Conta inserida com sucesso!')
     });
 
-    it.only('', () => {
+    it('Alterar uma conta existente', () => {
         cy.get('[data-test="menu-settings"]').click()
         cy.get('[href="/contas"]').click()
         cy.get('[data-test="nome"]').type('novaConta')
         cy.get('.btn').click()
         cy.get('.toast-success').should('to.have', 'Conta inserida com sucesso!')
-        cy.xpath('//table[@class="table"]/tbody/tr[contains(., "novaConta")]//i[@class="far fa-edit"]')
+        cy.xpath('//table[@class="table"]/tbody/tr[contains(., "novaConta")]//i[@class="far fa-edit"]').click()
+        cy.clear
+        cy.get('[data-test="nome"]').type('conta Alterada')
+        cy.get('.btn').click()
+        cy.get('.animated').should('to.have', 'Conta atualizada com sucesso!')
+        
+
     });
+
+
 });
