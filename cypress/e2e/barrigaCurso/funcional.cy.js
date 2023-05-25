@@ -53,5 +53,16 @@ describe('Testes funcionais do barriga react', () => {
          cy.xpath('//div[@class="list-group"]//span[contains(., "nova movimentacao")]/following-sibling::small[contains(., 100)]').should('exist')
     });
 
+    it('Verificar saldo de uma conta', () => {
+        cy.xpath('//table[@class="table table-hover table-bordered"]/tbody/tr[contains(., "Conta para saldo")]/td/following-sibling::td[contains(., 534)]')
+    });
+
+    it('Excluir uma movimentação', () => {
+        cy.get('[data-test="menu-extrato"] > .fas').click()
+        cy.xpath(loc.EXTRATO.BTN_EXCLUIR('Movimentacao para exclusao')).click()
+        cy.get(':nth-child(1) > .toast-message').should('to.have', 'Movimentação removida com sucesso!')
+        
+    });
+
 
 });

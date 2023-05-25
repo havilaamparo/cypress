@@ -15,6 +15,9 @@ const loc = {
         CONTA_NOME: '[data-test="nome"]',
         BTN_CONTA: '.btn',
         MENSAGEM_SUCESSO_CONTA: '.toast-success'
+    },
+    EXTRATO:{
+        BTN_EXCLUIR: (nomeMovimentacao) => `//div[@class="list-group"]//span[contains(., '${nomeMovimentacao}')]/../../following-sibling::div//i[@class="far fa-trash-alt"]`
     }
 }
 
